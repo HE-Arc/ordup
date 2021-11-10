@@ -11,6 +11,7 @@
     </template>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         <div class="mt-8 ml-5">
             <Link :href="route('drinks.create')" class="rounded bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add a drink</Link>
         </div>
@@ -32,7 +33,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="drink in drinks" :key="drink.id" class="bg-blue-200 lg:text-black" style="border-radius: 20px;">
+                    <tr v-for="drink in drinks.data" :key="drink.id" class="bg-blue-200 lg:text-black" style="border-radius: 20px;">
                         <td class="p-3 font-bold text-lg capitalize">{{drink.name}}</td>
                         <td class="p-3 text-base">{{drink.price.toFixed(2)}} frs</td>
                         <td class="p-3">
@@ -46,6 +47,11 @@
                     </tr>
                 </tbody>
             </table>
+
+        </div>
+
+        <div class="flex m-8 mx-auto justify-center">
+            <Pagination :links="drinks.links" />
         </div>
     </div>
 
@@ -54,12 +60,14 @@
 
 <script>
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue'
+import Pagination from '@/Components/Pagination.vue'
 import { Head, Link } from '@inertiajs/inertia-vue3'
 import { Inertia } from '@inertiajs/inertia'
 
 export default {
     components: {
         BreezeAuthenticatedLayout,
+        Pagination,
         Head,
         Link,
     },

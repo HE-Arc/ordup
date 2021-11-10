@@ -26,7 +26,7 @@ class DrinkController extends Controller
      */
     public function admin()
     {
-        $drinks = Drink::all();
+        $drinks = Drink::paginate(6);
 
         return inertia('Drinks/Admin', compact('drinks'));
     }
@@ -56,7 +56,7 @@ class DrinkController extends Controller
 
         Drink::create($request->all());
 
-        return redirect()->route('drinks.index')
+        return redirect()->route('drinks.admin')
             ->with('success','Drink created successfully.');
     }
 
@@ -99,7 +99,7 @@ class DrinkController extends Controller
 
         $drink->update($request->all());
 
-         return redirect()->route('drinks.index')
+         return redirect()->route('drinks.admin')
             ->with('success','Drink updated successfully');
     }
 
@@ -114,7 +114,7 @@ class DrinkController extends Controller
         $drink = Drink::find($id);
         $drink->delete();
 
-        return redirect()->route('drinks.index')
+        return redirect()->route('drinks.admin')
             ->with('success','Drink deleted successfully');
     }
 }
