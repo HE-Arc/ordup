@@ -29,6 +29,7 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('drinks/admin', [DrinkController::class, 'admin'])->name('drinks.admin');
 Route::resource('/drinks', DrinkController::class);
 
 require __DIR__.'/auth.php';

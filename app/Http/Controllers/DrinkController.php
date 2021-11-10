@@ -20,6 +20,18 @@ class DrinkController extends Controller
     }
 
     /**
+     * Display a listing of the resource for admin users.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function admin()
+    {
+        $drinks = Drink::all();
+
+        return inertia('Drinks/Admin', compact('drinks'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
