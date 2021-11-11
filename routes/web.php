@@ -22,10 +22,14 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('home');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('drinks', function (){})->name('drinks'); // temporaire, pour que ça compile //TODO A remplacer
+
+Route::get('orders', function (){})->name('orders'); // temporaire, pour que ça compile //TODO A remplacer
 
 require __DIR__.'/auth.php';
