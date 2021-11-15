@@ -14,6 +14,9 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
         },
+        backgroundColor: theme => ({
+            'bckground': '#fcda9a',
+        })
     },
 
     variants: {
