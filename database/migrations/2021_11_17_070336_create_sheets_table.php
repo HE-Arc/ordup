@@ -2,10 +2,9 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommandsTable extends Migration
+class CreateSheetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +13,8 @@ class CreateCommandsTable extends Migration
      */
     public function up()
     {
-        Schema::create('commands', function (Blueprint $table) {
+        Schema::create('sheets', function (Blueprint $table) {
             $table->id();
-            $table->integer('waiter_id')->unsigned()->nullable();
-            $table->integer('place_id')->unsigned()->nullable();
-            $table->float('amount')->unsigned();
-            $table->boolean('isPayed')->unsigned();
-
             $table->timestamps();
         });
     }
@@ -32,6 +26,6 @@ class CreateCommandsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commands');
+        Schema::dropIfExists('sheets');
     }
 }
