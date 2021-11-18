@@ -11,23 +11,23 @@ class Command extends Model
 
     protected $fillable = [
         'name',
-        'waiter_id',
+        'user_id',
         'place_id',
         'amount',
-        'is_payed',
+        'is_paid',
     ];
 
     function waiter() {
         return $this->belongsTo(User::class);
     }
 
-    public function sheets()
+    public function drinks_in_command()
     {
-        return $this->hasMany(Sheet::class);
+        return $this->hasMany(Drink_in_Command::class);
     }
 
     public function drinks()
     {
-        return $this->hasManyThrough(Sheet::class, Drink::class);
+        return $this->hasManyThrough(Drink_in_Command::class, Drink::class);
     }
 }

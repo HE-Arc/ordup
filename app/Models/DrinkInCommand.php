@@ -5,11 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Place extends Model
+class DrinkInCommand extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'drink_id',
+        'command_id',
+        'quantity'
     ];
+
+    function command() {
+        return $this->belongsTo(Command::class);
+    }
 }

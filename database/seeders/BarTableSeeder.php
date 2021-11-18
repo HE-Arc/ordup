@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Place;
+use App\Models\BarTable;
 use Illuminate\Database\Seeder;
 
-class PlaceSeeder extends Seeder
+class BarTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -23,7 +23,7 @@ class PlaceSeeder extends Seeder
         ];
 
         foreach ($places as $place){
-            Place::create(array(
+            BarTable::create(array(
                 'name' => $place['name'],
             ));
         }

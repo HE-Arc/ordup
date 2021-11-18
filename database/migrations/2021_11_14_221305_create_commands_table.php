@@ -16,10 +16,8 @@ class CreateCommandsTable extends Migration
     {
         Schema::create('commands', function (Blueprint $table) {
             $table->id();
-            $table->integer('waiter_id')->unsigned()->nullable();
-            $table->integer('place_id')->unsigned()->nullable();
             $table->float('amount')->unsigned();
-            $table->boolean('isPayed')->unsigned();
+            $table->boolean('is_paid')->unsigned();
 
             $table->timestamps();
         });

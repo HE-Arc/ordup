@@ -24,7 +24,6 @@
                             :inputId="'inputName'"
                             :labelText="'Name'"
                             :typeName="'text'"
-                            :formError="form.errors.name"
                             :labelClass="'inline-block w-1/4'"
                         />
                     </div>
@@ -35,7 +34,6 @@
                             :inputId="'inputPrice'"
                             :labelText="'Price'"
                             :typeName="'number'"
-                            :formError="form.errors.price"
                             :labelClass="'inline-block w-1/4'"
                         />
                     </div>
