@@ -1,10 +1,9 @@
 <template>
-    <div class="bg-red-300">
-        <button class="bg-green-500">Button</button>
+    <div>
         <BreezeNavBar :isConnected="false" />
     </div>
 
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-red-900">
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
         <div>
             <Link href="/">
                 <BreezeApplicationLogo class="w-20 h-20 fill-current text-gray-500" />

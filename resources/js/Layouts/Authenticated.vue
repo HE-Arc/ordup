@@ -3,7 +3,7 @@
         <div class="min-h-screen">
 
               <!-- Page Heading -->
-            <header class="bg-red-900 shadow" v-if="$slots.header">
+            <header class="shadow" v-if="$slots.header">
                 <div class="flex max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     <slot name="header" />
                      <!-- Settings Dropdown -->
@@ -30,14 +30,14 @@
             </header>
             <nav class="border-gray-100">
                 <!-- Primary Navigation Menu -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-between h-16">
-                        <div class="flex">
+                <!-- <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> -->
+                    <!-- <div class="flex justify-between h-16"> -->
+                        <!-- <div class="flex"> -->
                             <!-- Navigation Links -->
                             <div class="flex">
                                 <BreezeNavBar :isConnected="true" />
                             </div>
-                        </div>
+                        <!-- </div> -->
 
 
                         <!-- Hamburger -->
@@ -49,8 +49,8 @@
                                 </svg>
                             </button>
                         </div>
-                    </div>
-                </div>
+                    <!-- </div> -->
+                <!-- </div> -->
 
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
