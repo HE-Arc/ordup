@@ -1,9 +1,10 @@
 <template>
     <div class="bg-red-300">
+        <button class="bg-green-500">Button</button>
         <BreezeNavBar :isConnected="false" />
     </div>
 
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-white">
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-red-900">
         <div>
             <Link href="/">
                 <BreezeApplicationLogo class="w-20 h-20 fill-current text-gray-500" />
@@ -22,9 +23,9 @@ import BreezeNavBar from '@/Components/NavBar.vue'
 
 export default {
     components: {
+        BreezeNavBar,
         BreezeApplicationLogo,
         Link,
-        BreezeNavBar,
     }
 }
 </script>
