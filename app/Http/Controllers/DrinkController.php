@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BarTable;
 use App\Models\Drink;
 use Illuminate\Http\Request;
 
@@ -15,8 +16,9 @@ class DrinkController extends Controller
     public function index()
     {
         $drinks = Drink::all();
+        $bartables = BarTable::all();
 
-        return inertia('Drinks/Index', compact('drinks'));
+        return inertia('Drinks/Index', compact('drinks', 'bartables'));
     }
 
     /**

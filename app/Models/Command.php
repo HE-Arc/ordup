@@ -10,9 +10,8 @@ class Command extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
         'user_id',
-        'place_id',
+        'bar_table_id',
         'amount',
         'is_paid',
     ];
@@ -23,11 +22,11 @@ class Command extends Model
 
     public function drinks_in_command()
     {
-        return $this->hasMany(Drink_in_Command::class);
+        return $this->hasMany(DrinkInCommand::class);
     }
 
     public function drinks()
     {
-        return $this->hasManyThrough(Drink_in_Command::class, Drink::class);
+        return $this->hasManyThrough(DrinkInCommand::class, Drink::class);
     }
 }

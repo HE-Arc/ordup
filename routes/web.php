@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommandController;
 use App\Http\Controllers\DrinkController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -31,5 +32,8 @@ Route::get('/dashboard', function () {
 
 Route::get('drinks/admin', [DrinkController::class, 'admin'])->name('drinks.admin');
 Route::resource('/drinks', DrinkController::class);
+
+Route::get('commands', [CommandController::class, 'index'])->name('commands');
+Route::post('commands/create', [CommandController::class, 'create'])->name('commands.create');
 
 require __DIR__.'/auth.php';

@@ -19,18 +19,23 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div id="drinkList" class="mt-8 mx-auto border-2 border-blue-400 rounded-lg p-3 h-54 max-w-3xl" style="display: none;">
             <div class="h-32 overflow-y-scroll w-full">
-                <div v-for="drink in rows" :key="drink.key" class="flex bg-blue-200 lg:text-black mb-2 h-12">
-                    <p class="font-bold ml-5 mt-3 w-72">{{drink.name}}</p>
-                    <p class="mt-3 w-48">{{drink.price.toFixed(2)}} frs</p>
-                    <p class="mt-3">nx</p>
-                    <button @click="removeRow(drink.id)" class="text-red-500 hover:text-red-300 mt-2 mr-5 ml-auto">
+                <div v-for="(item, id) in rows" :key="id" class="flex bg-blue-200 lg:text-black mb-2 h-12">
+                    <p class="font-bold ml-5 mt-3 w-72">{{item.drink.name}}</p>
+                    <p class="mt-3 w-48">{{item.drink.price.toFixed(2)}} frs</p>
+                    <p class="mt-3">{{item.quantity}}x</p>
+                    <button @click="removeRow(id)" class="text-red-500 hover:text-red-300 mt-2 mr-5 ml-auto">
                         <i class="material-icons-round text-base">delete_outline</i>
                     </button>
                 </div>
             </div>
             <div class="flex mt-5">
+                <select @change="changeTable()" name="bartable_select" id="bartable_select" class="border rounded shadow py-1 pr-8 pl-3 w-8/12 sm:w-max">
+                    <option v-for="bartable in bartables" :key="bartable.id" :value="bartable.id">
+                        {{ bartable.name }}
+                    </option>
+                </select>
                 <button @click="cancelCommand()" class="ml-auto rounded bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Cancel</button>
-                <button class="ml-3 rounded bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit command</button>
+                <Link v-if="canSubmit()" :href="route('commands.create')" method="post" :data="{ dict: rows, bartable: bartable }" class="ml-3 rounded bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit command</Link>
             </div>
         </div>
 
@@ -67,11 +72,12 @@ export default {
         Link,
         Button,
     },
-    props: ['drinks'],
+    props: ['drinks', 'bartables'],
 
     data: function () {
         return {
-            rows: [],
+            rows: {},
+            bartable: 0,
             commandStarted: false
         };
     },
@@ -82,24 +88,45 @@ export default {
             this.commandStarted = true;
             document.getElementById('addCommand').style.display = "none";
             document.getElementById('drinkList').style.display = "block";
+            this.changeTable();
         },
 
         cancelCommand(){
-            this.rows = [];
+            this.rows = {};
+            this.bartable = 0;
             this.commandStarted = false;
             document.getElementById('addCommand').style.display = "block";
             document.getElementById('drinkList').style.display = "none";
         },
 
+        changeTable(){
+            this.bartable = document.getElementById("bartable_select").value;
+        },
+
         addRow(drink){
             if(this.commandStarted) {
-                this.rows.push(drink);
+
+                if (drink.id in this.rows) {
+                    this.rows[drink.id]['quantity'] += 1;
+                }
+                else {
+                    var dict = {'drink': drink, 'quantity': 1};
+                    this.rows[drink.id] = dict;
+                }
+
                 this.$forceUpdate();
             }
         },
 
         removeRow(id){
+            if(id in this.rows) {
+                delete this.rows[id];
+                this.$forceUpdate();
+            }
+        },
 
+        canSubmit(){
+            return Object.keys(this.rows).length > 0;
         }
     }
 }
