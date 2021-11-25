@@ -18,4 +18,8 @@ class DrinkInCommand extends Model
     function command() {
         return $this->belongsTo(Command::class);
     }
+
+    function drink() {
+        return $this->belongsTo(Drink::class);
+    }
 }

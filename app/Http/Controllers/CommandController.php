@@ -16,10 +16,20 @@ class CommandController extends Controller
      */
     public function index()
     {
-        //test
-        $commands = Command::where('is_paid', '0')->find(1);
+        $commands = Command::where('is_paid', '0')->get();
+        $data = array();
 
-        dd($commands->drinks_in_command);
+        foreach($commands as $key => $command)
+        {
+            $waiter = $command->user;
+            $bartable = $command->bartable;
+            $drinks = $commands->drinks;
+            $drink_in_command = $commands->drinks_in_command;
+
+            $customCommand = array(
+                "waiter_name" => $waiter->name,
+            );
+        }
 
         return inertia('Commands/Index', compact('commands'));
     }

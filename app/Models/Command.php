@@ -16,7 +16,8 @@ class Command extends Model
         'is_paid',
     ];
 
-    function waiter() {
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
@@ -27,6 +28,11 @@ class Command extends Model
 
     public function drinks()
     {
-        return $this->hasManyThrough(DrinkInCommand::class, Drink::class);
+        return $this->belongsToMany(Drink::class, 'drink_in_commands');
+    }
+
+    public function bartable()
+    {
+        return $this->belongsTo(BarTable::class, 'bar_table_id');
     }
 }
