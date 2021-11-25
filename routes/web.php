@@ -35,5 +35,6 @@ Route::resource('/drinks', DrinkController::class);
 
 Route::get('commands', [CommandController::class, 'index'])->name('commands');
 Route::post('commands/create', [CommandController::class, 'create'])->name('commands.create');
+Route::get('commands/pay/{id}', [CommandController::class, 'pay'])->name('commands.pay');
 
 require __DIR__.'/auth.php';

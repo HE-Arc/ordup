@@ -16,22 +16,36 @@ class CommandController extends Controller
      */
     public function index()
     {
-        $commands = Command::where('is_paid', '0')->get();
-        $data = array();
+        $commands = Command::where('is_paid', '0')->orderBy('created_at')->get();
+        $datas = array();
 
         foreach($commands as $key => $command)
         {
             $waiter = $command->user;
             $bartable = $command->bartable;
-            $drinks = $commands->drinks;
-            $drink_in_command = $commands->drinks_in_command;
+            $drinks = $command->drinks;
+            $drink_in_command = $command->drinks_in_command;
+
+            $customDrinks = array();
+
+            for ($x = 0; $x < count($drinks); $x++)
+            {
+                $customDrinks[$drinks[$x]->name] = $drink_in_command[$x]->quantity;
+            }
 
             $customCommand = array(
+                "id" => $command->id,
                 "waiter_name" => $waiter->name,
+                "table" => $bartable->name,
+                "drinks" => $customDrinks,
+                "date" => $command->created_at->format('H:i'),
+                "amount" => $command->amount
             );
+
+            $datas[] = $customCommand;
         }
 
-        return inertia('Commands/Index', compact('commands'));
+        return inertia('Commands/Index', compact('datas'));
     }
 
     /**
@@ -71,7 +85,21 @@ class CommandController extends Controller
             }
         }
 
-        return redirect()->route('drinks.index')
+        return redirect()->route('commands')
             ->with('success','Command created successfully.');
+    }
+
+    /**
+     * terminate command
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function pay($id)
+    {
+        $command = Command::where('id', $id)->firstOrFail();
+        $command->update(['is_paid' => 1]);
+
+        return redirect()->route('commands');
     }
 }
