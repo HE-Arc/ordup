@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -27,5 +28,12 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::get('/addEmployee', function() {
+    return Inertia::render('User/AddUser');
+})->name('addEmployee');
+
+Route::post('/addEmployee', [UserController::class, 'addEmployee'])->name('addEmployee');
 
 require __DIR__.'/auth.php';
