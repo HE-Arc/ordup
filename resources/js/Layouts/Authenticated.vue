@@ -7,8 +7,8 @@
                 <div class="flex max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     <slot name="header" />
                      <!-- Settings Dropdown -->
-                    <div class="ml-3 relative">
-                        <BreezeDropdown align="right" width="48">
+                    <div class="ml-3 absolute right-0 top-4">
+                        <BreezeDropdown align="right" width="48" class="mr-3 ml-auto">
                             <template #trigger>
                                 <span class="inline-flex rounded-md">
                                     <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
