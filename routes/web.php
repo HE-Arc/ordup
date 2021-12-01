@@ -33,8 +33,7 @@ Route::get('/dashboard', function () {
 Route::get('drinks/admin', [DrinkController::class, 'admin'])->name('drinks.admin');
 Route::resource('/drinks', DrinkController::class);
 
-Route::get('commands', [CommandController::class, 'index'])->name('commands');
-Route::post('commands/create', [CommandController::class, 'create'])->name('commands.create');
-Route::get('commands/pay/{id}', [CommandController::class, 'pay'])->name('commands.pay');
+Route::put('commands/{id}/pay', [CommandController::class, 'pay'])->name('commands.pay');
+Route::resource('/commands', CommandController::class);
 
 require __DIR__.'/auth.php';

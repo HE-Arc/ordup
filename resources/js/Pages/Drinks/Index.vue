@@ -17,7 +17,7 @@
     />
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div id="drinkList" class="mt-8 mx-auto border-2 border-blue-400 rounded-lg p-3 h-54 max-w-3xl" style="display: none;">
+        <div id="drinkList" v-if="commandStarted" class="mt-8 mx-auto border-2 border-blue-400 rounded-lg p-3 h-54 max-w-3xl">
             <div class="h-32 overflow-y-scroll w-full">
                 <div v-for="(item, id) in rows" :key="id" class="flex bg-blue-200 lg:text-black mb-2 h-12">
                     <p class="font-bold ml-5 mt-3 w-72">{{item.drink.name}}</p>
@@ -29,20 +29,20 @@
                 </div>
             </div>
             <div class="flex mt-5">
-                <select @change="changeTable()" name="bartable_select" id="bartable_select" class="border rounded shadow py-1 pr-8 pl-3 w-8/12 sm:w-max">
-                    <option v-for="bartable in bartables" :key="bartable.id" :value="bartable.id">
+                <select @change="changeTable()" v-model="selected" name="bartable_select" id="bartable_select" class="border rounded shadow py-1 pr-8 pl-3 w-8/12 sm:w-max">
+                    <option v-for="bartable in bartables" v-bind:value="{ id: bartable.id, text: bartable.name }" :key="bartable.id">
                         {{ bartable.name }}
                     </option>
                 </select>
                 <button @click="cancelCommand()" class="ml-auto rounded bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Cancel</button>
-                <Link v-if="canSubmit()" :href="route('commands.create')" method="post" :data="{ dict: rows, bartable: bartable }" class="ml-3 rounded bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit command</Link>
+                <Link v-if="canSubmit()" :href="route('commands.store')" method="post" :data="{ dict: rows, bartable: bartable }" class="ml-3 rounded bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit command</Link>
             </div>
         </div>
 
 
         <div class="flex mt-8 ml-5">
             <h1 class="text-4xl">Drink list</h1>
-            <button @click="addCommand()" id="addCommand" class="ml-auto rounded bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Create command</button>
+            <button @click="addCommand()" v-if="!commandStarted" id="addCommand" class="ml-auto rounded bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Create command</button>
         </div>
 
 
@@ -78,7 +78,8 @@ export default {
         return {
             rows: {},
             bartable: 0,
-            commandStarted: false
+            commandStarted: false,
+            selected: '',
         };
     },
 
@@ -86,8 +87,6 @@ export default {
 
         addCommand(){
             this.commandStarted = true;
-            document.getElementById('addCommand').style.display = "none";
-            document.getElementById('drinkList').style.display = "block";
             this.changeTable();
         },
 
@@ -95,12 +94,10 @@ export default {
             this.rows = {};
             this.bartable = 0;
             this.commandStarted = false;
-            document.getElementById('addCommand').style.display = "block";
-            document.getElementById('drinkList').style.display = "none";
         },
 
         changeTable(){
-            this.bartable = document.getElementById("bartable_select").value;
+            this.bartable = this.selected.id;
         },
 
         addRow(drink){

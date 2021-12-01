@@ -34,7 +34,7 @@
                 </ul>
                 <div class="m-4 flex border-t-2 pt-2">
                     <p class="mt-2 align-middle">{{data['amount'].toFixed(2)}} CHF</p>
-                    <Link :href="route('commands.pay', data['id'])" class="ml-auto rounded bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Serve</Link>
+                    <Link :href="route('commands.pay', data['id'])" method="put" class="ml-auto rounded bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Serve</Link>
                 </div>
             </div>
 
