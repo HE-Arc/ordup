@@ -3,12 +3,6 @@
 
   <breeze-authenticated-layout>
 
-    <template #header>
-      <h2>
-        Drinks
-      </h2>
-    </template>
-
     <!-- source : https://tailwindcomponents.com/components/tables -->
 
     <link

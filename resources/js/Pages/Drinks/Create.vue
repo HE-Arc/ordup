@@ -5,12 +5,6 @@
 
         <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"/>
 
-        <template #header>
-        <h2>
-            Add a new Drink
-        </h2>
-        </template>
-
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mt-8 ml-5">
                 <Link :href="route('drinks.admin')" class="bg-red-500 hover:bg-red-700 text-white text-center py-2 px-4 rounded">Back</Link>

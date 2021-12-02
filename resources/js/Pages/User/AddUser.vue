@@ -2,11 +2,6 @@
     <Head title="Add an Employee" />
 
     <breeze-authenticated-layout>
-        <template #header>
-        <h2>
-            Add a new Employee
-        </h2>
-        </template>
 
         <div class="flex-none md:flex justify-center">
         <form class="w-2/3 md:w-2/3 border-2 border-blue-400 rounded-lg mg-4 bg-blue-100" @submit.prevent="form.post(route('addEmployee'))">
