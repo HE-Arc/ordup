@@ -38,15 +38,15 @@
         Dashboard
       </BreezeNavLink>
       <BreezeNavLink class="pl-10 pr-10 border border-red-800"
-        :href="route('drinks')"
-        :active="route().current('drinks')"
+        :href="route('drinks.index')"
+        :active="route().current('drinks.index')"
         v-show="isConnected"
       >
         Drinks
       </BreezeNavLink>
       <BreezeNavLink class="pl-10 pr-10 border border-red-800"
-        :href="route('orders')"
-        :active="route().current('orders')"
+        :href="route('commands.index')"
+        :active="route().current('commands.index')"
         v-show="isConnected"
       >
         Orders

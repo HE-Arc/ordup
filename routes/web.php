@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CommandController;
+use App\Http\Controllers\DrinkController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,8 +30,10 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('drinks', function (){})->name('drinks'); // temporaire, pour que ça compile //TODO A remplacer
+Route::get('drinks/admin', [DrinkController::class, 'admin'])->name('drinks.admin');
+Route::resource('/drinks', DrinkController::class);
 
-Route::get('orders', function (){})->name('orders'); // temporaire, pour que ça compile //TODO A remplacer
+Route::put('commands/{id}/pay', [CommandController::class, 'pay'])->name('commands.pay');
+Route::resource('/commands', CommandController::class);
 
 require __DIR__.'/auth.php';
