@@ -11,9 +11,9 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex mt-8 ml-5">
-            <h1 class="text-4xl">Command list</h1>
+            <h1 class="text-4xl">Order list</h1>
         </div>
-        <div class="mr-5 md:m-8 justify-center">
+        <div class="mr-8 md:m-8 justify-center">
             <div v-for="data in datas" :key="data['id']"
             class="w-full md:w-2/3 border-2 rounded-lg m-4 md:mx-auto bg-white shadow">
                 <div class="flex m-4 border-b-2 pb-2">

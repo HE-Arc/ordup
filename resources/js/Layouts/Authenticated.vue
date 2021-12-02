@@ -26,15 +26,15 @@
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
-                        <BreezeNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                        <BreezeResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
-                        </BreezeNavLink>
-                        <BreezeNavLink :href="route('drinks.index')" :active="route().current('drinks.index')">
+                        </BreezeResponsiveNavLink>
+                        <BreezeResponsiveNavLink :href="route('drinks.index')" :active="route().current('drinks.index')">
                             Drinks
-                        </BreezeNavLink>
-                        <BreezeNavLink :href="route('commands.index')" :active="route().current('commands.index')">
+                        </BreezeResponsiveNavLink>
+                        <BreezeResponsiveNavLink :href="route('commands.index')" :active="route().current('commands.index')">
                             Orders
-                        </BreezeNavLink>
+                        </BreezeResponsiveNavLink>
                     </div>
 
                     <!-- Responsive Settings Options -->

@@ -19,7 +19,7 @@ class UserController extends Controller
             'inputCheckAdmin' => ''
         ]);
 
-        // Ajout de l'employé dans la database mon pote
+        // Ajout de l'employé dans la database
         //User::create($request->all());
 
         //dd($request->input('name'));

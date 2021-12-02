@@ -19463,7 +19463,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ["href", "active", "isConnected"],
   computed: {
     classes: function classes() {
-      return this.active ? "inline-flex items-center px-1 pt-1 border-b-2 border-indigo-400 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out" : "bg-blue-100 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out";
+      return this.active ? "inline-flex items-center px-1 pt-1 border-b-2 border-indigo-400 text-sm font-medium leading-5 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out" : "bg-blue-100 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out";
     }
   }
 });
@@ -19490,7 +19490,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['href', 'active', 'isConnected'],
   computed: {
     classes: function classes() {
-      return this.active ? 'inline-flex items-center text-red-800 bg-yellow-100' : 'inline-flex items-center';
+      return this.active ? 'inline-flex items-center text-black border-none bg-yellow-100' : 'inline-flex items-center';
     }
   }
 });
@@ -20964,8 +20964,6 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_BreezeNavBar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("BreezeNavBar");
 
-  var _component_BreezeNavLink = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("BreezeNavLink");
-
   var _component_BreezeResponsiveNavLink = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("BreezeResponsiveNavLink");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Page Heading "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("<header class=\"shadow\" v-if=\"$slots.header\">\n                <div class=\"flex max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8\">\n                    <slot name=\"header\" />\n                </div>\n            </header>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Primary Navigation Menu "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Navigation Links "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeNavBar, {
@@ -21002,7 +21000,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       'block': $data.showingNavigationDropdown,
       'hidden': !$data.showingNavigationDropdown
     }, "sm:hidden"])
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeNavLink, {
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeResponsiveNavLink, {
     href: _ctx.route('dashboard'),
     active: _ctx.route().current('dashboard')
   }, {
@@ -21014,7 +21012,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href", "active"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeNavLink, {
+  , ["href", "active"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeResponsiveNavLink, {
     href: _ctx.route('drinks.index'),
     active: _ctx.route().current('drinks.index')
   }, {
@@ -21026,7 +21024,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href", "active"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeNavLink, {
+  , ["href", "active"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeResponsiveNavLink, {
     href: _ctx.route('commands.index'),
     active: _ctx.route().current('commands.index')
   }, {
@@ -21794,12 +21792,12 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "flex mt-8 ml-5"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "text-4xl"
-}, "Command list")], -1
+}, "Order list")], -1
 /* HOISTED */
 );
 
 var _hoisted_4 = {
-  "class": "mr-5 md:m-8 justify-center"
+  "class": "mr-8 md:m-8 justify-center"
 };
 var _hoisted_5 = {
   "class": "flex m-4 border-b-2 pb-2"
@@ -22554,7 +22552,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "flex-none md:flex justify-center"
+  "class": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
 };
 var _hoisted_2 = {
   "class": "w-1/2 m-4 mx-auto"
@@ -22575,11 +22573,11 @@ var _hoisted_7 = {
   "class": "w-1/2 m-4 mx-auto"
 };
 var _hoisted_8 = {
-  "class": "mt-4"
+  "class": "w-1/2 m-4 mx-auto"
 };
 
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "inline-block w-1/4"
+  "class": "inline-block w-32"
 }, null, -1
 /* HOISTED */
 );
@@ -22599,7 +22597,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_breeze_authenticated_layout, null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-        "class": "w-2/3 md:w-2/3 border-2 border-blue-400 rounded-lg mg-4 bg-blue-100",
+        "class": "w-full md:w-2/3 justify-center border-2 rounded-lg m-4 mx-auto bg-white shadow",
         onSubmit: _cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
           return $data.form.post(_ctx.route('addEmployee'));
         }, ["prevent"]))
@@ -22611,7 +22609,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         inputId: 'inputFirstname',
         labelText: 'Firstname',
         typeName: 'text',
-        labelClass: 'inline-block w-1/4'
+        labelClass: 'block md:inline-block w-32'
       }, null, 8
       /* PROPS */
       , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputLabel, {
@@ -22622,7 +22620,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         inputId: 'inputLastname',
         labelText: 'Lastname',
         typeName: 'text',
-        labelClass: 'inline-block w-1/4'
+        labelClass: 'block md:inline-block w-32'
       }, null, 8
       /* PROPS */
       , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputLabel, {
@@ -22633,7 +22631,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         inputId: 'inputMail',
         labelText: 'Mail',
         typeName: 'email',
-        labelClass: 'inline-block w-1/4'
+        labelClass: 'block md:inline-block w-32'
       }, null, 8
       /* PROPS */
       , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputLabel, {
@@ -22644,7 +22642,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         inputId: 'inputPassword',
         labelText: 'Password',
         typeName: 'password',
-        labelClass: 'inline-block w-1/4'
+        labelClass: 'block md:inline-block w-32'
       }, null, 8
       /* PROPS */
       , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputLabel, {
@@ -22655,7 +22653,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         inputId: 'inputConfirmPass',
         labelText: 'Confirm pass',
         typeName: 'password',
-        labelClass: 'inline-block w-1/4'
+        labelClass: 'block md:inline-block w-32'
       }, null, 8
       /* PROPS */
       , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputLabel, {
@@ -22666,7 +22664,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         inputId: 'inputCheckAdmin',
         labelText: 'is Admin ?  ',
         typeName: 'checkbox',
-        labelClass: 'inline-block w-1/4'
+        labelClass: 'inline-block w-32'
       }, null, 8
       /* PROPS */
       , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_breeze_validation_errors, {

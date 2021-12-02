@@ -17,7 +17,7 @@ export default {
     computed: {
         classes() {
             return this.active
-                ? 'inline-flex items-center text-red-800 bg-yellow-100'
+                ? 'inline-flex items-center text-black border-none bg-yellow-100'
                 : 'inline-flex items-center'
         },
     }

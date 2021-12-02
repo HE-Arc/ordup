@@ -36,10 +36,9 @@ Route::resource('/drinks', DrinkController::class);
 Route::put('commands/{id}/pay', [CommandController::class, 'pay'])->name('commands.pay');
 Route::resource('/commands', CommandController::class);
 
-Route::get('/addEmployee', function () {
+Route::get('/addUser', function () {
     return Inertia::render('User/AddUser');
-})->name('addEmployee');
-
+})->name('addUser');
 Route::post('/addEmployee', [UserController::class, 'addEmployee'])->name('addEmployee');
 
 require __DIR__ . '/auth.php';
