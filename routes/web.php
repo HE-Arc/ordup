@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommandController;
 use App\Http\Controllers\DrinkController;
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -20,7 +21,6 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
@@ -36,4 +36,10 @@ Route::resource('/drinks', DrinkController::class);
 Route::put('commands/{id}/pay', [CommandController::class, 'pay'])->name('commands.pay');
 Route::resource('/commands', CommandController::class);
 
-require __DIR__.'/auth.php';
+Route::get('/addEmployee', function () {
+    return Inertia::render('User/AddUser');
+})->name('addEmployee');
+
+Route::post('/addEmployee', [UserController::class, 'addEmployee'])->name('addEmployee');
+
+require __DIR__ . '/auth.php';
