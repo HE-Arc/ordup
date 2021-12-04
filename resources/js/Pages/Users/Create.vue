@@ -4,7 +4,7 @@
     <breeze-authenticated-layout>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <form class="w-full md:w-2/3 justify-center border-2 rounded-lg m-4 mx-auto bg-white shadow" @submit.prevent="form.post(route('addEmployee'))">
+            <form class="w-full md:w-2/3 justify-center border-2 rounded-lg m-4 mx-auto bg-white shadow" @submit.prevent="form.post(route('users.store'))">
                 <div class="w-1/2 m-4 mx-auto">
                     <InputLabel
                         v-model="form.inputFirstname"
@@ -23,7 +23,7 @@
                         :typeName="'text'"
                         :labelClass="'block md:inline-block w-32'"
                     />
-                </div>
+                    </div>
 
                 <div class="w-1/2 m-4 mx-auto">
                     <InputLabel
