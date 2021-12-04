@@ -39,24 +39,18 @@ class UserController extends Controller
     {
         // validation du formulaire
         $request->validate([
-            'inputFirstname' => 'required|string|max:30',
-            'inputLastname' => 'required|string|max:30',
-            'inputMail' => 'required|email|max:255',
-            'inputPassword' => 'required|required_with:inputConfirmPass|same:inputConfirmPass',
-            'inputConfirmPass' => 'required',
-            'inputCheckAdmin' => ''
+            'firstname' => 'required|string|max:30',
+            'lastname' => 'required|string|max:30',
+            'email' => 'required|email|max:255',
+            'password' => 'required|required_with:confirm_password|same:confirm_password',
+            'is_admin' => ''
         ]);
-
-
-        // User::create($request->all());
 
         // Ajout de l'employé dans la database
         User::create($request->all());
 
-        //dd($request->input('name'));
-
         // redirection de l'admin avec succès ou echec
-        return redirect()->route('dashboard')->with('success','User created successfully.');
+        return redirect()->route('dashboard')->with('success', 'User created successfully.');
     }
 
     /**

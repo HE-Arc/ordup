@@ -24,31 +24,24 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-})->name('home');
+})->middleware(['guest'])->name('home');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('drinks/admin', [DrinkController::class, 'admin'])->name('drinks.admin');
-Route::resource('/drinks', DrinkController::class);
+Route::get('/admin', function() {
+    return inertia('Admin/AdminPanel');
+})->middleware(['auth', 'verified', 'admin'])->name('admin');
 
-Route::put('commands/{id}/pay', [CommandController::class, 'pay'])->name('commands.pay');
-Route::resource('/commands', CommandController::class);
+Route::get('drinks/admin', [DrinkController::class, 'admin'])->middleware(['auth', 'verified', 'admin'])->name('drinks.admin');
+Route::resource('/drinks', DrinkController::class)->middleware(['auth', 'verified']);
 
-#Route::get('users/{id}', function ($id) {
+Route::put('commands/{id}/pay', [CommandController::class, 'pay'])->middleware(['auth', 'verified'])->name('commands.pay');
+Route::resource('/commands', CommandController::class)->middleware(['auth', 'verified']);
 
-#});
-
-
-#Route::get('/users');
-Route::resource('/users', UserController::class);
+Route::resource('/users', UserController::class)->middleware(['auth', 'verified', 'admin']);
 
 
-// Route::resource('/drinks', DrinkController::class);
-#Route::get('/addUser', function () {
-    #return Inertia::render('User/AddUser');
-#})->name('addUser');
-#Route::post('/addEmployee', [UserController::class, 'addEmployee'])->name('addEmployee');
 
 require __DIR__ . '/auth.php';

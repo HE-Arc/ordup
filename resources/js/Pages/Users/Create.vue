@@ -7,7 +7,7 @@
             <form class="w-full md:w-2/3 justify-center border-2 rounded-lg m-4 mx-auto bg-white shadow" @submit.prevent="form.post(route('users.store'))">
                 <div class="w-1/2 m-4 mx-auto">
                     <InputLabel
-                        v-model="form.inputFirstname"
+                        v-model="form.firstname"
                         :inputId="'inputFirstname'"
                         :labelText="'Firstname'"
                         :typeName="'text'"
@@ -17,7 +17,7 @@
 
                 <div class="w-1/2 m-4 mx-auto">
                     <InputLabel
-                        v-model="form.inputLastname"
+                        v-model="form.lastname"
                         :inputId="'inputLastname'"
                         :labelText="'Lastname'"
                         :typeName="'text'"
@@ -27,7 +27,7 @@
 
                 <div class="w-1/2 m-4 mx-auto">
                     <InputLabel
-                        v-model="form.inputMail"
+                        v-model="form.email"
                         :inputId="'inputMail'"
                         :labelText="'Mail'"
                         :typeName="'email'"
@@ -37,7 +37,7 @@
 
                 <div class="w-1/2 m-4 mx-auto">
                     <InputLabel
-                        v-model="form.inputPassword"
+                        v-model="form.password"
                         :inputId="'inputPassword'"
                         :labelText="'Password'"
                         :typeName="'password'"
@@ -47,7 +47,7 @@
 
                 <div class="w-1/2 m-4 mx-auto">
                     <InputLabel
-                        v-model="form.inputConfirmPass"
+                        v-model="form.confirm_password"
                         :inputId="'inputConfirmPass'"
                         :labelText="'Confirm pass'"
                         :typeName="'password'"
@@ -57,7 +57,7 @@
 
                 <div class="w-1/2 m-4 mx-auto">
                     <InputLabel
-                        v-model="form.inputCheckAdmin"
+                        v-model="form.is_admin"
                         :inputId="'inputCheckAdmin'"
                         :labelText="'is Admin ?  '"
                         :typeName="'checkbox'"
@@ -92,12 +92,12 @@ export default {
     data() {
         return {
             form: useForm({
-                inputFirstname: null,
-                inputLastname:null,
-                inputMail:null,
-                inputPassword:null,
-                inputConfirmPass:null,
-                inputCheckAdmin:null,
+                firstname: null,
+                lastname:null,
+                email:null,
+                password:null,
+                confirm_password:null,
+                is_admin:null,
             })
         }
     },
