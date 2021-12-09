@@ -117,7 +117,7 @@ export default {
         },
 
         canSubmit(){
-            return Object.keys(this.rows).length > 0;
+            return Object.keys(this.rows).length > 0 && !isNaN(this.bartable);
         }
     }
 }

@@ -35,7 +35,7 @@ class CommandController extends Controller
 
             $customCommand = array(
                 "id" => $command->id,
-                "waiter_name" => $waiter->name,
+                "waiter_name" => $waiter->firstname,
                 "table" => $bartable->name,
                 "drinks" => $customDrinks,
                 "date" => $command->created_at->format('H:i'),
