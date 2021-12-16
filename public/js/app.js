@@ -21262,7 +21262,7 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, " Here you can add new drinks in your card to enrich it. You can also change the name of your drinks and their price with just one click. No longer serve a drink ? remove it ! ", -1
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, " Here you can add new drinks in your menu to enrich it. You can also change the name of your drinks and their price with just one click. No longer serve a drink ? remove it ! ", -1
 /* HOISTED */
 );
 
