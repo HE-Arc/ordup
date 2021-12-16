@@ -44,10 +44,10 @@
                             <i class="material-icons-outlined">close</i>
                         </td>
                         <td class="p-3">
-                            <Link :href="route('users.edit', user.id)" class="text-green-600 hover:text-green-500 mx-2">
+                            <Link :href="route('users.edit', user.id)" v-if="user.is_admin == 0 || user.id == auth_id" class="text-green-600 hover:text-green-500 mx-2">
                                 <i class="material-icons-outlined text-base">edit</i>
                             </Link>
-                            <button @click="destroy(user.id)" class="text-red-500 hover:text-red-300 ml-2">
+                            <button @click="destroy(user.id)" v-if="user.is_admin == 0" class="text-red-500 hover:text-red-300 ml-2">
                                 <i class="material-icons-round text-base">delete_outline</i>
                             </button>
                         </td>
@@ -78,7 +78,7 @@ export default {
         Head,
         Link,
     },
-    props: ['users'],
+    props: ['users', 'auth_id'],
 
     methods: {
             destroy(id){

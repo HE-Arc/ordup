@@ -17,7 +17,7 @@ class UserController extends Controller
     {
         $users = User::paginate(6);
 
-        return inertia('Users/Index', compact('users'));
+        return inertia('Users/Index', ['users' => $users, 'auth_id' => auth()->user()->id]);
     }
 
     /**
