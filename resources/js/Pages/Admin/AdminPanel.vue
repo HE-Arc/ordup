@@ -11,7 +11,7 @@
                 <div class="w-full border-2 rounded-lg m-4 p-4 md:mx-auto bg-white shadow">
                     <h2 class="text-xl md:text-2xl font-bold">Drinks admin</h2>
                     <p>
-                        Here you can add new drinks in your card to enrich it. You can also change the name of your drinks and their price with just one click. No longer serve a drink ? remove it !
+                        Here you can add new drinks in your menu to enrich it. You can also change the name of your drinks and their price with just one click. No longer serve a drink ? remove it !
                     </p>
                     <div class="mt-4 flex">
                         <Link :href="route('drinks.admin')" class="ml-auto rounded bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Manage</Link>
