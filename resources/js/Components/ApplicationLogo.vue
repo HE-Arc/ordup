@@ -1,6 +1,6 @@
 <template>
   <div>
-        <img :src="require('/src/img/logo.jpg').default" />
+        <img :src="require('/src/img/logo.png').default" />
     </div>
 </template>
 <script>

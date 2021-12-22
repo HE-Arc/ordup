@@ -1,11 +1,12 @@
 <template>
 	<div class="flex h-16 bg-blue-800 text-blue-100 w-full">
-		<!-- <div>
-      <Link href="dashboard">
-        <BreezeApplicationLogo class="w-10 h-10"/>
-      </Link>
-    </div> -->
-		<div class="hidden sm:ml-10 sm:flex">
+
+		<div class="hidden sm:ml-5 sm:flex">
+
+            <Link href="dashboard">
+                <BreezeApplicationLogo class="w-16 h-16 mr-5 mt-1"/>
+            </Link>
+
 			<BreezeNavLink
 				class="pl-10 pr-10 border border-blue-800"
 				:href="route('home')"
@@ -49,7 +50,7 @@
 				Orders
 			</BreezeNavLink>
 
-            
+
 			<BreezeNavLink
 				class="pl-10 pr-10 border border-blue-800"
 				:href="route('admin')"
