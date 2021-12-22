@@ -49,7 +49,7 @@
 				Orders
 			</BreezeNavLink>
 
-            
+
 			<BreezeNavLink
 				class="pl-10 pr-10 border border-blue-800"
 				:href="route('admin')"
@@ -57,6 +57,15 @@
 				v-show="isConnected"
 			>
 				Zone admin
+			</BreezeNavLink>
+
+            <BreezeNavLink
+				class="pl-10 pr-10 border border-blue-800"
+				:href="route('password.update')"
+				:active="route().current('password.update')"
+				v-show="isConnected"
+			>
+				Changement mot de passe
 			</BreezeNavLink>
 
 			<div class="ml-3 absolute right-0 top-4" v-if="isConnected">
@@ -107,6 +116,14 @@
 							as="button"
 						>
 							Log Out
+						</BreezeDropdownLink>
+
+                        <BreezeDropdownLink
+							:href="route('password.update')"
+							method="post"
+							as="button"
+						>
+							Change password
 						</BreezeDropdownLink>
 					</template>
 				</BreezeDropdown>
