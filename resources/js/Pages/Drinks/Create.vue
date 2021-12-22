@@ -29,6 +29,7 @@
                             :labelText="'Price'"
                             :typeName="'number'"
                             :labelClass="'inline-block w-1/4'"
+                            :step="0.1"
                         />
                     </div>
 

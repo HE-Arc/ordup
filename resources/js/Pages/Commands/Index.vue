@@ -10,6 +10,13 @@
     />
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <!-- source : https://v1.tailwindcss.com/components/alerts -->
+        <div  v-if="success" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+            <strong class="font-bold">Success ! </strong>
+            <span class="block sm:inline">{{success}}</span>
+        </div>
+
         <div class="flex mt-8 ml-5">
             <h1 class="text-4xl">Order list</h1>
         </div>
@@ -51,6 +58,6 @@ export default {
         Link,
         Button,
     },
-    props: ['datas']
+    props: ['datas', 'success']
 }
 </script>
