@@ -59,7 +59,7 @@
                     <InputLabel
                         v-model="form.is_admin"
                         :inputId="'inputCheckAdmin'"
-                        :labelText="'is Admin ?  '"
+                        :labelText="'is Admin ?'"
                         :typeName="'checkbox'"
                         :labelClass="'inline-block w-32'"
                     />

@@ -23015,7 +23015,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.is_admin = $event;
         }),
         inputId: 'inputCheckAdmin',
-        labelText: 'is Admin ?  ',
+        labelText: 'is Admin ?',
         typeName: 'checkbox',
         labelClass: 'inline-block w-32'
       }, null, 8
