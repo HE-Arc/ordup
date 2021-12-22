@@ -45,7 +45,9 @@ class CommandController extends Controller
             $datas[] = $customCommand;
         }
 
-        return inertia('Commands/Index', compact('datas'));
+        $success = session('success');
+
+        return inertia('Commands/Index', compact('datas', 'success'));
     }
 
     /**
@@ -101,7 +103,7 @@ class CommandController extends Controller
         $command = Command::where('id', $id)->firstOrFail();
         $command->update(['is_paid' => 1]);
 
-        return redirect()->route('commands.index');
+        return redirect()->route('commands.index')->with('success', 'Command served');
     }
 
     /**

@@ -29,8 +29,9 @@ class DrinkController extends Controller
     public function admin()
     {
         $drinks = Drink::paginate(6);
+        $success = session('success');
 
-        return inertia('Drinks/Admin', compact('drinks'));
+        return inertia('Drinks/Admin', compact('drinks', 'success'));
     }
 
     /**

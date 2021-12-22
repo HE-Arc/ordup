@@ -17,7 +17,9 @@ class UserController extends Controller
     {
         $users = User::paginate(6);
 
-        return inertia('Users/Index', compact('users'));
+        $success = session('success');
+
+        return inertia('Users/Index', compact('users', 'success'));
     }
 
     /**
