@@ -15,7 +15,7 @@
         </div>
     </div>
 
-     <div class="flex flex-col mt-40 sm:justify-center items-center pt-6 sm:pt-0">
+     <div class="flex flex-col sm:justify-center items-center pt-6 sm:pt-0" style="min-height: calc(100vh - 248px);">
         <div>
             <Link href="/">
                 <BreezeApplicationLogo class="w-20 h-20 mb-20 mx-auto"/>
@@ -27,6 +27,8 @@
             <slot />
         </div>
     </div>
+
+    <BreezeFooter/>
 </template>
 
 <script>
@@ -34,7 +36,7 @@ import { Head, Link } from '@inertiajs/inertia-vue3';
 import BreezeNavBar from '@/Components/NavBar.vue';
 import BreezeNavLink from "@/Components/NavLink.vue";
 import BreezeApplicationLogo from '@/Components/ApplicationLogo.vue'
-
+import BreezeFooter from '@/Layouts/Footer.vue'
 
 export default {
     components: {
@@ -42,7 +44,8 @@ export default {
       Link,
       BreezeNavBar,
       BreezeNavLink,
-      BreezeApplicationLogo
+      BreezeApplicationLogo,
+      BreezeFooter
 
     },
     props: {

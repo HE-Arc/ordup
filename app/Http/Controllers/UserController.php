@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(6);
+        $users = User::paginate(4);
 
         $success = session('success');
         $auth_id = auth()->user()->id;

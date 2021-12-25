@@ -4,6 +4,11 @@
     <breeze-authenticated-layout>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="mt-8 ml-5">
+                <Link :href="route('users.index')" class="bg-red-500 hover:bg-red-700 text-white text-center py-2 px-4 rounded">Back</Link>
+            </div>
+
             <form class="w-full md:w-2/3 justify-center border-2 rounded-lg m-4 mx-auto bg-white shadow" @submit.prevent="form.post(route('users.store'))">
                 <div class="w-1/2 m-4 mx-auto">
                     <InputLabel
