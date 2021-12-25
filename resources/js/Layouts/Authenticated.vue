@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="min-h-screen">
+        <div>
 
               <!-- Page Heading -->
             <!--<header class="shadow" v-if="$slots.header">
@@ -57,9 +57,11 @@
             </nav>
 
             <!-- Page Content -->
-            <main>
+            <main style="min-height: calc(100vh - 280px);">
                 <slot />
             </main>
+
+            <BreezeFooter/>
         </div>
     </div>
 </template>
@@ -70,6 +72,7 @@ import BreezeNavLink from '@/Components/NavLink.vue'
 import BreezeResponsiveNavLink from '@/Components/ResponsiveNavLink.vue'
 import { Link } from '@inertiajs/inertia-vue3';
 import BreezeNavBar from '@/Components/NavBar.vue'
+import BreezeFooter from '@/Layouts/Footer.vue'
 
 export default {
     components: {
@@ -78,6 +81,7 @@ export default {
         BreezeResponsiveNavLink,
         Link,
         BreezeNavBar,
+        BreezeFooter,
     },
 
     data() {

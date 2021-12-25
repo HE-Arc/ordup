@@ -5,31 +5,34 @@
         <BreezeNavBar :isConnected="false" />
     </div>
 
-     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
+    <div class="flex flex-col sm:justify-center items-center pt-6 sm:pt-0" style="min-height: calc(100vh - 280px);">
         <div>
-            <!-- <Link href="/">
+            <Link href="/">
                 <BreezeApplicationLogo class="w-20 h-20 fill-current text-gray-500" />
-            </Link> -->
+            </Link>
             <div class="text-5xl">Beer ? Ordup !</div>
         </div>
         <div class="w-full sm:max-w-md mt-6 px-6 py-4 overflow-hidden sm:rounded-lg">
             <slot />
         </div>
     </div>
+
+    <BreezeFooter/>
 </template>
 
 <script>
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import BreezeNavBar from '@/Components/NavBar.vue'
 import BreezeApplicationLogo from '@/Components/ApplicationLogo.vue'
-
+import BreezeFooter from '@/Layouts/Footer.vue'
 
 export default {
     components: {
       Head,
       Link,
       BreezeNavBar,
-      BreezeApplicationLogo
+      BreezeApplicationLogo,
+      BreezeFooter
 
     },
     props: {
