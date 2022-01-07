@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 class UserController extends Controller
 {
@@ -46,7 +47,8 @@ class UserController extends Controller
             'firstname' => 'required|string|max:30',
             'lastname' => 'required|string|max:30',
             'email' => 'required|email|max:255',
-            'password' => 'required|required_with:confirm_password|same:confirm_password',
+            'password' => ['required',  Rules\Password::defaults()],
+            'confirm_password' => 'required|same:password',
             'is_admin' => ''
         ]);
 
@@ -126,5 +128,33 @@ class UserController extends Controller
 
         return redirect()->route('users.index')
             ->with('success','User deleted successfully');
+    }
+
+    /**
+     * Update password.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => ['required',  Rules\Password::defaults()],
+            'confirm' => 'required|same:new_password'
+        ]);
+
+        $id = auth()->user()->id;
+        $user = User::where('id', $id)->firstOrFail();
+
+        if(Hash::check($request->input('current_password'), $user->password))
+        {
+            $user->password = Hash::make($request->input('new_password'));
+
+            $user->update();
+
+            return redirect()->route('dashboard')
+                ->with('success','Password updated successfully');
+        }
     }
 }

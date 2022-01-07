@@ -113,8 +113,8 @@
 						</BreezeDropdownLink>
 
                         <BreezeDropdownLink
-							:href="route('password.update')"
-							method="post"
+							:href="route('users.password')"
+							method="get"
 							as="button"
 						>
 							Change password

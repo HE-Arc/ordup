@@ -4,6 +4,7 @@
     <BreezeAuthenticatedLayout>
 
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
             <div class="flex mt-8 ml-5">
                 <h1 class="text-4xl">Dashboard</h1>
             </div>
