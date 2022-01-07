@@ -28,19 +28,19 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 Route::get('/admin', function() {
     return inertia('Admin/AdminPanel');
-})->middleware(['auth', 'verified', 'admin'])->name('admin');
+})->middleware(['auth', 'admin'])->name('admin');
 
-Route::get('drinks/admin', [DrinkController::class, 'admin'])->middleware(['auth', 'verified', 'admin'])->name('drinks.admin');
-Route::resource('/drinks', DrinkController::class)->middleware(['auth', 'verified']);
+Route::get('drinks/admin', [DrinkController::class, 'admin'])->middleware(['auth', 'admin'])->name('drinks.admin');
+Route::resource('/drinks', DrinkController::class)->middleware(['auth']);
 
-Route::put('commands/{id}/pay', [CommandController::class, 'pay'])->middleware(['auth', 'verified'])->name('commands.pay');
-Route::resource('/commands', CommandController::class)->middleware(['auth', 'verified']);
+Route::put('commands/{id}/pay', [CommandController::class, 'pay'])->middleware(['auth'])->name('commands.pay');
+Route::resource('/commands', CommandController::class)->middleware(['auth']);
 
-Route::resource('/users', UserController::class)->middleware(['auth', 'verified', 'admin']);
+Route::resource('/users', UserController::class)->middleware(['auth', 'admin']);
 
 
 
