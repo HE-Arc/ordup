@@ -22,13 +22,15 @@ class DrinkController extends Controller
     }
 
     /**
-     * Display a listing of the resource for admin users.
+     * Display a listing of the resource for admin drinks.
      *
      * @return \Illuminate\Http\Response
      */
     public function admin()
     {
         $drinks = Drink::paginate(4);
+        $drinks->withPath(env('APP_URL') . '/drinks/admin');
+
         $success = session('success');
 
         return inertia('Drinks/Admin', compact('drinks', 'success'));

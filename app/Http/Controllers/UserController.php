@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
@@ -17,6 +18,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::paginate(4);
+        $users->withPath(env('APP_URL') . '/users');
 
         $success = session('success');
         $auth_id = auth()->user()->id;

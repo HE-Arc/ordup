@@ -43,7 +43,6 @@ Route::resource('/commands', CommandController::class)->middleware(['auth']);
 Route::get('/users/password', function () {
     return inertia('Users/Password');
 })->middleware(['auth'])->name('users.password');
-
 Route::put('/users/password/update', [UserController::class, 'updatePassword'])->middleware(['auth'])->name('users.password.update');
 Route::resource('/users', UserController::class)->middleware(['auth', 'admin']);
 
