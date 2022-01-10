@@ -20,11 +20,11 @@ class CommandController extends Controller
 
         // Iterate on each command
         foreach ($commands as $command) {
-            // get info command
+            // Get info command
             $waiter = $command->user;
             $bartable = $command->bartable;
             $drinks = $command->drinks;
-            $drinkInCommand = $command->drinks_in_command;
+            $drinkInCommand = $command->drinksInCommand;
 
             $customDrinks = array();
 
@@ -33,6 +33,7 @@ class CommandController extends Controller
                 $customDrinks[$drinks[$x]->name] = $drinkInCommand[$x]->quantity;
             }
 
+            // create array with custom command to chow on vue
             $customCommand = array(
                 "id" => $command->id,
                 "waiter_name" => $waiter->firstname,
@@ -42,7 +43,7 @@ class CommandController extends Controller
                 "amount" => $command->amount
             );
 
-            // build array at every iteration
+            // Build array at every iteration
             $datas[] = $customCommand;
         }
 
@@ -72,6 +73,7 @@ class CommandController extends Controller
                 $amount += $value['drink']['price'] * $value['quantity'];
             }
 
+            // Create new command
             $command->user_id = auth()->user()->id;
             $command->is_paid = false;
             $command->bar_table_id = $dict['bartable'];

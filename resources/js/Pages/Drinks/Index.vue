@@ -3,6 +3,8 @@
 
   <breeze-authenticated-layout>
 
+    <!-- Drinks list view -->
+
     <!-- source : https://tailwindcomponents.com/components/tables -->
 
     <link
@@ -79,21 +81,25 @@ export default {
 
     methods: {
 
+        // Create new command
         addCommand(){
             this.commandStarted = true;
             this.changeTable();
         },
 
+        // Cancel existing command
         cancelCommand(){
             this.rows = {};
             this.bartable = 0;
             this.commandStarted = false;
         },
 
+        // Change table selected id when select input change
         changeTable(){
             this.bartable = this.selected.id;
         },
 
+        // Add new drink in command
         addRow(drink){
             if(this.commandStarted) {
 
@@ -109,6 +115,7 @@ export default {
             }
         },
 
+        // Remove drink
         removeRow(id){
             if(id in this.rows) {
                 delete this.rows[id];
@@ -116,6 +123,7 @@ export default {
             }
         },
 
+        // Check if command can be submitted
         canSubmit(){
             return Object.keys(this.rows).length > 0 && !isNaN(this.bartable);
         }

@@ -16,13 +16,19 @@ class Admin extends Middleware
      */
     public function handle($request, Closure $next, $guard = null)
     {
+        // If a user is connected
         if (Auth::check()) {
+
+            // user is admin
             if ($request->user()->is_admin == true) {
                 return $next($request);
             }
+
+            // send error message
             abort(403);
         }
 
+        // redirect on login page
         return redirect('/login');
     }
 }

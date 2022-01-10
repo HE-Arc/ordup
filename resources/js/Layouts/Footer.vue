@@ -1,4 +1,7 @@
 <template>
+
+    <!-- Application footer -->
+
     <footer class="bg-blue-800 rounded-t-lg">
         <div class="py-2 flex flex-col justify-center items-center">
             <h1 class="text-4xl">Ordup !</h1>

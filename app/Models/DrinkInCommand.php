@@ -15,10 +15,20 @@ class DrinkInCommand extends Model
         'quantity'
     ];
 
+    /**
+     * Get command
+     *
+     * @return Command
+     */
     function command() {
         return $this->belongsTo(Command::class);
     }
 
+    /**
+     * Get drink
+     *
+     * @return Drink
+     */
     function drink() {
         return $this->belongsTo(Drink::class);
     }

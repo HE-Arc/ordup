@@ -3,6 +3,7 @@
 
   <breeze-authenticated-layout>
 
+    <!-- Drinks admin view -->
 
     <template #header>
       <h2>

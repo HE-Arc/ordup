@@ -17,10 +17,18 @@ class UserController extends Controller
      */
     public function index()
     {
+        // Get all users using pagination
         $users = User::paginate(4);
+
+        // Set pagination path
+        // This command solve problem with https on deployment
+        // Without this command Laravel created links without https
         $users->withPath(env('APP_URL') . '/users');
 
+        // Get success message
         $success = session('success');
+
+        // Get authentificated user
         $auth_id = auth()->user()->id;
 
         return inertia('Users/Index', compact('users', 'success', 'auth_id'));
@@ -33,7 +41,6 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
         return inertia('Users/Create');
     }
 
@@ -45,32 +52,37 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        // Form validation
         $request->validate([
             'firstname' => 'required|string|max:30',
             'lastname' => 'required|string|max:30',
             'email' => 'required|email|max:255',
+
+            // Validate password with Laravel rules
             'password' => ['required',  Rules\Password::defaults()],
             'confirm_password' => 'required|same:password',
             'is_admin' => ''
         ]);
 
+        // Create new user
         $user = new User();
-
         $user->firstname = $request->input('firstname');
         $user->lastname = $request->input('lastname');
         $user->email = $request->input('email');
 
+        // If input is checked
         if($request->input('is_admin') == null)
             $user->is_admin = 0;
         else
             $user->is_admin = 1;
 
+        // Hash password
         $user->password = Hash::make($request->input('password'));
 
         $user->save();
 
-        // redirection with success or error message
-        return redirect()->route('users.index')->with('success', 'User created successfully.');
+        return redirect()->route('users.index')
+            ->with('success', 'User created successfully.');
     }
 
     /**
@@ -140,19 +152,26 @@ class UserController extends Controller
      */
     public function updatePassword(Request $request)
     {
+        // Form validation
         $request->validate([
             'current_password' => 'required',
+
+            // Validate password with Laravel rules
             'new_password' => ['required',  Rules\Password::defaults()],
             'confirm' => 'required|same:new_password'
         ]);
 
+        // Get authentificated user id
         $id = auth()->user()->id;
         $user = User::where('id', $id)->firstOrFail();
 
+        // If current password match with user password
         if(Hash::check($request->input('current_password'), $user->password))
         {
+            // Hash password
             $user->password = Hash::make($request->input('new_password'));
 
+            // Update user
             $user->update();
 
             return redirect()->route('dashboard')

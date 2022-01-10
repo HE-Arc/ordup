@@ -15,8 +15,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-
-        //
         DB::table('users')->insert([
             'firstname' => 'Gabriel',
             'lastname' => 'Fasano',
@@ -39,6 +37,33 @@ class UserSeeder extends Seeder
             'firstname' => 'William',
             'lastname' => 'Bikuta',
             'email' => 'william.bikuta@he-arc.ch',
+            'password' => Hash::make('Abc123456'),
+            'email_verified_at' => today(),
+            'is_admin' => true
+        ]);
+
+        DB::table('users')->insert([
+            'firstname' => 'David',
+            'lastname' => 'Grunenwald',
+            'email' => 'david.grunenwald@he-arc.ch',
+            'password' => Hash::make('Abc123456'),
+            'email_verified_at' => today(),
+            'is_admin' => true
+        ]);
+
+        DB::table('users')->insert([
+            'firstname' => 'Alexander',
+            'lastname' => 'Wohlfahrt',
+            'email' => 'alxander.wohlfahrt@he-arc.ch',
+            'password' => Hash::make('Abc123456'),
+            'email_verified_at' => today(),
+            'is_admin' => true
+        ]);
+
+        DB::table('users')->insert([
+            'firstname' => 'Luca',
+            'lastname' => 'Laissue',
+            'email' => 'luca.laissue@he-arc.ch',
             'password' => Hash::make('Abc123456'),
             'email_verified_at' => today(),
             'is_admin' => true

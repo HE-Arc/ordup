@@ -28,9 +28,15 @@ class DrinkController extends Controller
      */
     public function admin()
     {
+        // Get all drinks using pagination
         $drinks = Drink::paginate(4);
+
+        // Set pagination path
+        // This command solve problem with https on deployment
+        // Without this command Laravel created links without https
         $drinks->withPath(env('APP_URL') . '/drinks/admin');
 
+        // Get success message
         $success = session('success');
 
         return inertia('Drinks/Admin', compact('drinks', 'success'));
@@ -54,11 +60,13 @@ class DrinkController extends Controller
      */
     public function store(Request $request)
     {
+        // Form validation
         $request->validate([
             'name' => 'required|string',
             'price' => 'required|numeric'
         ]);
 
+        // Create new Drink using form inputs
         Drink::create($request->all());
 
         return redirect()->route('drinks.admin')
@@ -97,11 +105,13 @@ class DrinkController extends Controller
      */
     public function update(Request $request, Drink $drink)
     {
+        // Form validation
         $request->validate([
             'name' => 'required|string',
             'price' => 'required|numeric'
         ]);
 
+        // Update drink using form inputs
         $drink->update($request->all());
 
          return redirect()->route('drinks.admin')

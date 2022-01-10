@@ -1,4 +1,7 @@
 <template>
+
+    <!-- Home view -->
+
     <Head title="Welcome" />
     <div class="hidden sm:block">
         <BreezeNavBar :isConnected="false" />

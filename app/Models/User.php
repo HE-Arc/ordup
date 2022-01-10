@@ -42,6 +42,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Get all user's commands
+     *
+     * @return array DrinkInCommand
+     */
     public function commands()
     {
         return $this->hasMany(Command::class);

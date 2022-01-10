@@ -1,5 +1,6 @@
 <template>
   <div>
+        <!-- Application logo -->
         <img :src="require('/src/img/logo2.png').default" />
     </div>
 </template>
