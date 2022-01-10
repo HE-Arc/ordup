@@ -40,8 +40,10 @@ Route::resource('/drinks', DrinkController::class)->middleware(['auth']);
 Route::put('commands/{id}/pay', [CommandController::class, 'pay'])->middleware(['auth'])->name('commands.pay');
 Route::resource('/commands', CommandController::class)->middleware(['auth']);
 
+Route::get('/users/password', function () {
+    return inertia('Users/Password');
+})->middleware(['auth'])->name('users.password');
+Route::put('/users/password/update', [UserController::class, 'updatePassword'])->middleware(['auth'])->name('users.password.update');
 Route::resource('/users', UserController::class)->middleware(['auth', 'admin']);
-
-
 
 require __DIR__ . '/auth.php';

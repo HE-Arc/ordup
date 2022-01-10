@@ -1,45 +1,53 @@
 <template>
-    <Head title="Edit Drink" />
+    <Head title="Update password" />
 
     <breeze-authenticated-layout>
 
         <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"/>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
             <div class="mt-8 ml-5">
-                <Link :href="route('drinks.admin')" class="bg-red-500 hover:bg-red-700 text-white text-center py-2 px-4 rounded">Back</Link>
+                <Link :href="route('users.index')" class="bg-red-500 hover:bg-red-700 text-white text-center py-2 px-4 rounded">Back</Link>
             </div>
 
-            <form class="bg-white border max-w-xl m-6 mx-auto rounded-lg" @submit.prevent="form.put(route('drinks.update', drink))">
+            <form class="bg-white border max-w-xl m-6 mx-auto rounded-lg" @submit.prevent="form.put(route('users.password.update'))">
 
-                <div class="w-1/2 m-4 mx-auto">
+                <div class="w-3/4 m-4 mx-auto">
                     <div>
                         <InputLabel
-                            v-model="form.name"
-                            :inputId="'inputName'"
-                            :labelText="'Name'"
-                            :typeName="'text'"
-                            :formError="form.errors.name"
-                            :labelClass="'inline-block w-1/4'"
+                            v-model="form.current_password"
+                            :inputId="'inputCurrentPassword'"
+                            :labelText="'Current password'"
+                            :typeName="'password'"
+                            :labelClass="'inline-block w-36'"
                         />
                     </div>
 
                     <div class="mt-4">
                         <InputLabel
-                            v-model="form.price"
-                            :inputId="'inputPrice'"
-                            :labelText="'Price'"
-                            :typeName="'number'"
-                            :formError="form.errors.price"
-                            :labelClass="'inline-block w-1/4'"
-                            :step="0.1"
+                            v-model="form.new_password"
+                            :inputId="'inputNewPassword'"
+                            :labelText="'New password'"
+                            :typeName="'password'"
+                            :labelClass="'inline-block w-36'"
+                        />
+                        </div>
+
+                    <div class="mt-4">
+                        <InputLabel
+                            v-model="form.confirm"
+                            :inputId="'inputConfirm'"
+                            :labelText="'Confirm'"
+                            :typeName="'password'"
+                            :labelClass="'inline-block w-36'"
                         />
                     </div>
 
                     <breeze-validation-errors class="mt-3" />
 
                     <div class="mt-4">
-                        <label class="inline-block w-1/4"></label>
+                        <label class="inline-block w-36"></label>
                         <button type="submit" class="rounded bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" :disabled="form.processing">Update</button>
                     </div>
                 </div>
@@ -61,12 +69,12 @@ export default {
         InputLabel,
         BreezeValidationErrors,
     },
-    props: ['drink'],
     data() {
         return {
             form: useForm({
-                name: this.drink.name,
-                price: this.drink.price,
+                current_password: null,
+                new_password: null,
+                confirm: null
             })
         }
     },

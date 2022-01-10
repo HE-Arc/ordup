@@ -1,5 +1,5 @@
 <template>
-  <Head title="Drinks" />
+  <Head title="Users" />
 
   <breeze-authenticated-layout>
 

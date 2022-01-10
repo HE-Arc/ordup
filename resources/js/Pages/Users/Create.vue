@@ -70,7 +70,8 @@
                     />
                 </div>
 
-                <breeze-validation-errors class="mt-3" />
+                <breeze-validation-errors class="m-4 w-1/2 mx-auto"/>
+
                 <div class="w-1/2 m-4 mx-auto">
                     <label class="inline-block w-32"></label>
                     <button type="submit" class="rounded bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" :disabled="form.processing">Create</button>
