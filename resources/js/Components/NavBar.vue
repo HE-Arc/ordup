@@ -3,7 +3,7 @@
 
 		<div class="hidden sm:ml-5 sm:flex">
 
-            <Link href="dashboard">
+            <Link :href="route('dashboard')">
                 <BreezeApplicationLogo
                 class="w-10 h-10 mr-5 mt-1"
                 v-show="isConnected"/>
