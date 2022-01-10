@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class CommandController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -19,18 +18,19 @@ class CommandController extends Controller
         $commands = Command::where('is_paid', '0')->orderBy('created_at')->get();
         $datas = array();
 
-        foreach($commands as $key => $command)
-        {
+        // Iterate on each command
+        foreach ($commands as $command) {
+            // get info command
             $waiter = $command->user;
             $bartable = $command->bartable;
             $drinks = $command->drinks;
-            $drink_in_command = $command->drinks_in_command;
+            $drinkInCommand = $command->drinks_in_command;
 
             $customDrinks = array();
 
-            for ($x = 0; $x < count($drinks); $x++)
-            {
-                $customDrinks[$drinks[$x]->name] = $drink_in_command[$x]->quantity;
+            // Create array with drinks as key and quantity as value.
+            for ($x = 0; $x < count($drinks); $x++) {
+                $customDrinks[$drinks[$x]->name] = $drinkInCommand[$x]->quantity;
             }
 
             $customCommand = array(
@@ -42,6 +42,7 @@ class CommandController extends Controller
                 "amount" => $command->amount
             );
 
+            // build array at every iteration
             $datas[] = $customCommand;
         }
 
@@ -60,13 +61,14 @@ class CommandController extends Controller
     {
         $dict = json_decode($request->getContent(), true);
 
-        if(count($dict) > 0)
-        {
+
+        // Array command is not empty.
+        if (count($dict) > 0) {
             $command = new Command();
             $amount = 0.0;
 
-            foreach($dict['dict'] as $key => $value)
-            {
+            // Process sum.
+            foreach ($dict['dict'] as $value) {
                 $amount += $value['drink']['price'] * $value['quantity'];
             }
 
@@ -77,8 +79,8 @@ class CommandController extends Controller
 
             $command->save();
 
-            foreach($dict['dict'] as $key => $value)
-            {
+            // Create relation for each drink in command.
+            foreach ($dict['dict'] as $value) {
                 $drinkincommand = new DrinkInCommand();
                 $drinkincommand->drink_id = $value['drink']['id'];
                 $drinkincommand->command_id = $command->id;
@@ -89,7 +91,7 @@ class CommandController extends Controller
         }
 
         return redirect()->route('commands.index')
-            ->with('success','Command created successfully.');
+            ->with('success', 'Command created successfully.');
     }
 
     /**
