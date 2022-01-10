@@ -5,8 +5,8 @@
             <Link href="/">
                 <BreezeApplicationLogo class="w-14 h-14 my-2"/>
             </Link>
-            <p tabindex="0" class="focus:outline-none mt-4 text-xs lg:text-sm leading-none text-gray-900">2021 HE-Arc Ingenierie. All Rights Reserved.</p>
-            <p tabindex="0" class="focus:outline-none text-xs lg:text-sm leading-none text-gray-900">William Bikuta, Gabriel Fasano & Milán Cerviño</p>
+            <p tabindex="0" class="focus:outline-none mt-4 text-xs lg:text-sm leading-none text-blue-100">2021 HE-Arc Ingenierie. All Rights Reserved.</p>
+            <p tabindex="0" class="focus:outline-none text-xs lg:text-sm leading-none text-blue-100">William Bikuta, Gabriel Fasano & Milán Cerviño</p>
         </div>
     </footer>
 </template>
