@@ -15,7 +15,7 @@ With the constant pressure of work that requires speed and rigor, a lack of orga
 This application doesn't allow users to register by themself. Only admin user can register a new user on admin panel. So, here are three credentials that you can use to access to the application:
 
 - david.grunenwald@he-arc.ch - Abc123456
-- alxander.wohlhfahrt@he-arc.ch - Abc123456
+- alexander.wohlfahrt@he-arc.ch - Abc123456
 - luca.laissue@he-arc.ch - Abc123456
 
 
